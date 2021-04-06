@@ -1,0 +1,16 @@
+{
+  "name": "esail-traslate-checker",
+  "version": "1.0.0",
+  "description": "A utility to check the structure correctness of the translations of the eSail community",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node common.test.js"
+  },
+  "author": "Rodrigo Lopes",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "neat-csv": "^6.0.1"
+  }
+}
