@@ -4,26 +4,66 @@ import { tagsChecker, empty } from './common.js'
 
 const headers= [
   {
+    filename: './eSailData_LocaleCategories.csv',
+    enHeaders: ['1=MenuTitle', '2=MenuText'], 
+    ptHeaders: ['18=Portuguese Title', '19=Portuguese Text'],
+    ignore: [14],
+  },
+  {
+    filename: './eSailData_LocaleModules.csv',
+    enHeaders: ['1=MenuTitle', '2=MenuText'], 
+    ptHeaders: ['13=Portuguese Header', '14=Portuguese Text'],
+  },
+  {
     filename: './eSailData_LocaleTextStrings.csv',
     enHeaders: ['English '], 
     ptHeaders: ['Portuguese'],
-    topShift: 0, //num of lines to ignore after header
   },
   {
     filename: './eSailData_LocaleItems.csv',
     enHeaders: ['3=text \n\n ° <flink=000></fLink>', '4=Beginner Text'], 
     ptHeaders: ['41=Portuguese', '42=Portuguese Beginner'],
-    topShift: 1, //num of lines to ignore after header
+    ignore: [1], //the num of the line to ignore (the num is what you see on the sheet)
+  },
+  {
+    filename: './eSailData_LocaleAlerts.csv',
+    enHeaders: ['2=Alert Header','3=Alert Text     \\n\\n    °  <flink=000></fLink>'], 
+    ptHeaders: ['14=Portuguese Header', '15=Portuguese Text'],
+    ignore: [1], //the num of the line to ignore (the num is what you see on the sheet)
+  },
+  {
+    filename: './eSailData_LocaleKeyNames.csv',
+    enHeaders: ['English'], 
+    ptHeaders: ['Portuguese'],
+  },
+  {
+    filename: './eSailData_LocaleOptions.csv',
+    enHeaders: ['1=Text'], 
+    ptHeaders: ['7=Portuguese Text'],
+  },
+  {
+    filename: './eSailData_Steam.csv',
+    enHeaders: ['English'], 
+    ptHeaders: ['Portuguese'],
+  },
+  {
+    filename: './eSailData_Website.csv',
+    enHeaders: ['English'], 
+    ptHeaders: ['Portuguese'],
+    ignore: [42],
   },
 ]
 
-function checkOneFile(filepath, enHeaders, otherHeaders, topShift) {
+function checkOneFile(filepath, enHeaders, otherHeaders, ignore=[]) {
   readFile(filepath, 'utf8', async (err, data) => {
     if (err) throw err;
     const lines = await neatCsv(data)
+    //console.log(Object.keys(lines[0]))
     console.log(filepath)
     for (let i in lines) {
-      if (i < topShift) 
+      i=parseInt(i)
+
+      if (ignore && ignore.includes(i+2)) 
         continue
 
       const line = lines[i]
@@ -34,7 +74,7 @@ function checkOneFile(filepath, enHeaders, otherHeaders, topShift) {
         //console.log(en)
         const other = line[otherH]
         if (en && (!tagsChecker(en, other) || empty(en, other))) {
-          console.log('┌line', 2+parseInt(i), enH)
+          console.log('┌line', 2+i, enH)
           console.log('├en', en)
           console.log('└pt', other)
         }
@@ -45,7 +85,7 @@ function checkOneFile(filepath, enHeaders, otherHeaders, topShift) {
 
 for (let headerMap of headers) {
   const {
-    filename, enHeaders, ptHeaders, topShift
+    filename, enHeaders, ptHeaders, ignore
   } = headerMap
-  checkOneFile(filename, enHeaders, ptHeaders, topShift)
+  checkOneFile(filename, enHeaders, ptHeaders, ignore)
 }
