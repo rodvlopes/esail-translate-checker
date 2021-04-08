@@ -22,3 +22,6 @@ To run the tests:
 
     npm run test
 
+## Sample output
+
+![demo0](./esail-translate-checker.png)
