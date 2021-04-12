@@ -6,15 +6,16 @@ Translate a lot of texts tempered with matkups is an error prune task. This scri
 
 * NodeJS required version > 14
 
-1) Install dependecies:
+* Install dependecies:
 
-    npm intall
+    npm install
 
-2) Download csv from zoho and move than to this directory.
+* Download csv from zoho and move than to this directory.
 
-3) Run
+* Run
 
     node index.js
+    node index.js --pt #for pt lang only
 
 ## Dev
 

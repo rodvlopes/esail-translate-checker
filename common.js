@@ -1,10 +1,11 @@
-export const tagsChecker = (en, other) => {
+export const tagsMatch = (en, other='') => {
 
   const enTags = en.match(/[<\[](.*?)[>\]]/g) || []
   const otherTags = other.match(/[<\[](.*?)[>\]]/g) || []
-  return enTags.reduce((acc, it, i) =>
+  const match = enTags.reduce((acc, it, i) =>
     acc && it === otherTags[i]
    , true)
+  return match ? true : { en: enTags, other: otherTags }
 }
 
 export const empty = (en, other) => 
