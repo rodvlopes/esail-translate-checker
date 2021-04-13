@@ -41,9 +41,11 @@ Two validations is run against the CSVs.
 └it <empty>
 ```
 
-*Read:* At sheet LocaleAlerts, line 93, the english column "2=Alert Header" has no corresponding italian (it) translation.
+**Read:** At sheet LocaleAlerts, *line 93*, the english column `2=Alert Header` has no corresponding italian (it) translation.
 
 2. Markup Matcher
+
+Checks if the tags on the **en** column matches the tags on other language column.
 
 ```
 ./eSailData_LocaleAlerts.csv
@@ -52,7 +54,7 @@ Two validations is run against the CSVs.
 └it [ '<i>', '<Rebind_Autopilot>' ]
 ```
 
-*Read:* At sheet LocaleAlerts, line 33, the english column "3=Alert Text     \n\n    °  <flink=000></fLink> " has a problem with the markups in the corresponding italian (it) column. In the example, the problem is: "no closing </I>".
+**Read:** At sheet LocaleAlerts, *line 33*, the english column `3=Alert Text     \n\n    °  <flink=000></fLink> ` has a problem with the markup tags in the corresponding italian (it) column. In this example, the problem is: `no closing </I>`.
 
 ## Links
 
