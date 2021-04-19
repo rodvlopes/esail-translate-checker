@@ -1,6 +1,6 @@
 import { readFile } from 'fs'
 import neatCsv from 'neat-csv'
-import { tagsMatch, empty } from './common.js'
+import { tagsMatch, empty } from './src/common/common.js'
 
 const headers= [
   {

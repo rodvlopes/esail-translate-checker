@@ -1,3 +1,5 @@
 *.csv
 .*.swp
+*.txt
 node_modules
+build

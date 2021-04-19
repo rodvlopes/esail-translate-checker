@@ -2,7 +2,11 @@
 
 Translate a lot of texts tempered with markup is an error prune task. This script is intended to assure the tags and structure are not compromised.
 
-# How to Use
+# Online version
+
+[rodrigolop.es/esail](https://rodrigolop.es/esail)
+
+# How to Use (CLI version)
 
 * NodeJS required version > 14
 
@@ -14,8 +18,8 @@ Translate a lot of texts tempered with markup is an error prune task. This scrip
 
 * Run
 
-    node index.js
-    node index.js --pt #for pt lang only
+    node cli.js      #run against all langs
+    node cli.js --pt #for pt lang only
 
 ## Dev
 

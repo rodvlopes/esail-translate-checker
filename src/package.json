@@ -25,8 +25,7 @@
     "lint": "eslint './src/**/*.{js,jsx}'",
     "lint:fix": "eslint './src/**/*.{js,jsx}' --fix",
     "cli": "node cli.js",
-    "common:test": "node src/common/common.test.js",
-    "deploy": "rsync -azh --delete --progress -e 'ssh -p 2222' ./build/* deploy@v.rodrigolop.es:/var/www/rodrigolop.es/esail"
+    "common:test": "node common/common.test.js"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +58,5 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "prettier": "^2.2.1"
-  },
-  "homepage": "http://rodrigolop.es/esail/"
+  }
 }
